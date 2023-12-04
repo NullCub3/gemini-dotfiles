@@ -1,4 +1,4 @@
-# gemini-dotfiles
+# Gemini Dotfiles
 
 Various configuration files for my laptop, Gemini!
 
