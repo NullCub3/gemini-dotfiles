@@ -11,6 +11,16 @@ if status is-interactive
     end
     starship init fish | source
     enable_transience
+
+    function sudo --description "Replacement for Bash 'sudo !!' command to run last command using sudo."
+    if test "$argv" = !!
+        echo sudo $history[1]
+        eval command sudo $history[1]
+    else
+        command sudo $argv
+    end
+end
+
 end
 
 # Allow for creation of nested directories in a single command
@@ -56,3 +66,8 @@ alias arpnames "arp -a | sed 's/.*(\([.[:digit:]]*\)).*/\1/' | xargs -n1 nslooku
 
 # Dumb brain Dumb
 alias ':q' exit
+
+alias reboot "echo 'you dumbass'"
+
+export GCM_CREDENTIAL_STORE=secretservice
+
