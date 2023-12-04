@@ -1,3 +1,7 @@
+# Config entirely stolen from @Zynh0722
+# Check Obsidian for more info
+# 2023-07-15
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
@@ -13,13 +17,13 @@ if status is-interactive
     enable_transience
 
     function sudo --description "Replacement for Bash 'sudo !!' command to run last command using sudo."
-    if test "$argv" = !!
-        echo sudo $history[1]
-        eval command sudo $history[1]
-    else
-        command sudo $argv
+        if test "$argv" = !!
+            echo sudo $history[1]
+            eval command sudo $history[1]
+        else
+            command sudo $argv
+        end
     end
-end
 
 end
 
@@ -50,13 +54,10 @@ alias lip 'ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk ''{print $2}'''
 alias localip "ifconfig | grep \"inet \" | grep -Fv 127.0.0.1 | awk \'{print $2}\'"
 
 # Move to projects folder
-alias projects 'cd ~/Documents/projects'
+alias projects 'cd ~/Projects'
 
 # Sourcing .venv
 alias srcvenv 'source .venv/bin/activate'
-
-# 2022 AOC
-alias aoc 'cd /Users/zynh/Documents/projects/vals-advent-of-code/2022/rust'
 
 # Shortcut for attaching to or creating default tmux session
 alias a 'tmux new-session -A'
@@ -67,7 +68,9 @@ alias arpnames "arp -a | sed 's/.*(\([.[:digit:]]*\)).*/\1/' | xargs -n1 nslooku
 # Dumb brain Dumb
 alias ':q' exit
 
+# Preventing me from triggering this one random gfx glitch
+# I can't reboot the computer, however shutting down then starting up is fine.
 alias reboot "echo 'you dumbass'"
 
-export GCM_CREDENTIAL_STORE=secretservice
-
+# Git Log but better
+alias githist "git log --graph --decorate --oneline"
