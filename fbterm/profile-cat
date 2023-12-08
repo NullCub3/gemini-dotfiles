@@ -1,0 +1,22 @@
+# hack for 256 color depth with fbterm
+
+if [ "$TERM" = "linux" ]; then
+    echo -en "\e]P024273a" # Base       #black
+    echo -en "\e]P1ed8796" # Red        #darkred
+    echo -en "\e]P2a6da95" # Green      #darkgreen
+    echo -en "\e]P3f5a97f" # Peach      #brown
+    echo -en "\e]P48aadf4" # Blue       #darkblue
+    echo -en "\e]P5c6a0f6" # Mauve      #darkmagenta
+    echo -en "\e]P67dc4e4" # Sapphire   #darkcyan
+    echo -en "\e]P7a5adcb" # Subtext0   #lightgrey
+    echo -en "\e]P8363a4f" # Surface0   #darkgrey
+    echo -en "\e]P9f4dbd6" # Rosewater  #red
+    echo -en "\e]PA8bd5ca" # Teal       #green
+    echo -en "\e]PBee99a0" # Maroon     #yellow
+    echo -en "\e]PCb7bdf8" # Lavender   #blue
+    echo -en "\e]PDf5bde6" # Pink       #magenta
+    echo -en "\e]PE91d7e3" # Sky        #cyan
+    echo -en "\e]PFcad3f5" # Text       #white
+
+    FBTERM=1 exec fbterm
+fi

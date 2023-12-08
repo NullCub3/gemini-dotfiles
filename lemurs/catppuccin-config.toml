@@ -89,7 +89,7 @@ show_background = false
 
 [background.style]
 # Allow to set the default background color for the login shell
-color = "black"
+color = "#24273a"
 # Settings for the background block's borders
 show_border = true
 border_color = "white"
@@ -102,7 +102,7 @@ allow_shutdown = true
 shutdown_hint = "Shutdown %key%"
 
 # The color and modifiers of the hint in the top-left corner
-shutdown_hint_color = "dark gray"
+shutdown_hint_color = "#363a4f"
 shutdown_hint_modifiers = ""
 
 # The key used to shutdown. Possibilities are F1 to F12.
@@ -118,7 +118,7 @@ allow_reboot = true
 reboot_hint = "Reboot %key%"
 
 # The color and modifiers of the hint in the top-left corner
-reboot_hint_color = "dark gray"
+reboot_hint_color = "#363a4f"
 reboot_hint_modifiers = ""
 
 # The key used to reboot. Possibilities are F1 to F12.
@@ -169,7 +169,7 @@ toggle_hint_modifiers = ""
 
 # Show an option for the TTY shell when logging in as one of the environments. 
 # NOTE: it is always shown when no viable options are found. 
-include_tty_shell = true
+include_tty_shell = false
 
 # Remember the selected environment after logging in for the next time
 remember = true
@@ -182,7 +182,7 @@ mover_color = "dark gray"
 mover_modifiers = ""
 
 # Mover's color and modifiers whilst the selector is focused
-mover_color_focused = "orange"
+mover_color_focused = "#f4dbd6"
 mover_modifiers_focused = "bold" 
 
 # The characters used to display the movers. Suggestions are:
@@ -205,18 +205,18 @@ neighbour_color = "dark gray"
 neighbour_modifiers = ""
 
 # Neighbours' color and modifiers whilst the selector is focused
-neighbour_color_focused = "gray"
+neighbour_color_focused = "#363a4f"
 neighbour_modifiers_focused = ""
 
 # Margin between neighbours and selected
 neighbour_margin = 1
 
 # Selected's color and modifiers whilst the selector is unfocused
-selected_color = "gray"
+selected_color = "#494d64"
 selected_modifiers = "underlined"
 
 # Selected's color and modifiers whilst the selector is focused
-selected_color_focused = "white"
+selected_color_focused = "#b7bdf8"
 selected_modifiers_focused = "bold"
 
 # The length of the name of the desktop environment which is displayed.
@@ -227,12 +227,12 @@ no_envs_text = "No environments..."
 
 # The color and modifiers of the 'no desktop environments available text'
 # whilst the selector is unfocused
-no_envs_color = "white"
+no_envs_color = "#f4dbd6"
 no_envs_modifiers = ""
 
 # The color and modifiers of the 'no desktop environments available text'
 # whilst the selector is focused
-no_envs_color_focused = "red"
+no_envs_color_focused = "#ed8796"
 no_envs_modifiers_focused = ""
 
 [username_field]
@@ -247,8 +247,8 @@ show_title = true
 title = "Login"
 
 # The title's color and modifiers whilst the username field is unfocused
-title_color = "white"
-content_color = "white"
+title_color = "#b7bdf8"
+content_color = "#b7bdf8"
 
 # The title's color and modifiers whilst the username field is focused
 title_color_focused = "orange"
@@ -257,9 +257,9 @@ content_color_focused = "orange"
 # Enables showing the borders
 show_border = true
 # The borders' color and modifiers whilst the username field is unfocused
-border_color = "white"
+border_color = "#b7bdf8"
 # The borders' color and modifiers whilst the username field is focused
-border_color_focused = "orange"
+border_color_focused = "#f4dbd6"
 
 # Constrain the width of the username field
 use_max_width = true
@@ -280,19 +280,19 @@ show_title = true
 title = "Password"
 
 # The title's color and modifiers whilst the password field is unfocused
-title_color = "white"
-content_color = "white"
+title_color = "#b7bdf8"
+content_color = "#b7bdf8"
 
 # The title's color and modifiers whilst the password field is focused
-title_color_focused = "orange"
-content_color_focused = "orange"
+title_color_focused = "#f4dbd6"
+content_color_focused = "#f4dbd6"
 
 # Enables showing the borders
 show_border = true
 # The borders' color and modifiers whilst the username field is unfocused
-border_color = "white"
+border_color = "#b7bdf8"
 # The borders' color and modifiers whilst the username field is focused
-border_color_focused = "orange"
+border_color_focused = "#f4dbd6"
 
 # Constrain the width of the password field
 use_max_width = true
