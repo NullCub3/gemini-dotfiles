@@ -1,23 +1,22 @@
 #!/bin/sh
 
-# This is the example configuration file for river.
-#
-# If you wish to edit this, you will probably want to copy it to
-# $XDG_CONFIG_HOME/river/init or $HOME/.config/river/init first.
-#
 # See the river(1), riverctl(1), and rivertile(1) man pages for complete
 # documentation.
 
-# Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
+# Set background and border color
+riverctl background-color 0x191724
+riverctl border-color-focused 0xebbcba
+riverctl border-color-unfocused 0x908caa
 
-# Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
+# Super+Shift+Enter to spawn a Alacritty terminal
 riverctl map normal Super+Shift Return spawn alacritty
+riverctl map normal Super Space spawn 'rofi -show drun'
 
-# Super+Q to close the focused view
+# Super+Shift+Q to close the focused view
 riverctl map normal Super+Shift Q close
 
-# Super+Shift+E to exit river
-riverctl map normal Super+Shift E exit
+# Super+Alt+Shift+Escape to exit river
+riverctl map normal Super+Alt+Shift Escape exit
 
 # Super+J and Super+K to focus the next/previous view in the layout stack
 riverctl map normal Super J focus-view next
@@ -96,11 +95,11 @@ all_tags=$(((1 << 32) - 1))
 riverctl map normal Super 0 set-focused-tags $all_tags
 riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
-# Super+Space to toggle float
-riverctl map normal Super Space toggle-float
+# Super+Shift+F to toggle float
+riverctl map normal Super+Shift F toggle-float
 
-# Super+F to toggle fullscreen
-riverctl map normal Super F toggle-fullscreen
+# Super+F11 to toggle fullscreen
+riverctl map normal Super F11 toggle-fullscreen
 
 # Super+{Up,Right,Down,Left} to change layout orientation
 riverctl map normal Super Up send-layout-cmd rivertile "main-location top"
@@ -108,18 +107,7 @@ riverctl map normal Super Right send-layout-cmd rivertile "main-location right"
 riverctl map normal Super Down send-layout-cmd rivertile "main-location bottom"
 riverctl map normal Super Left send-layout-cmd rivertile "main-location left"
 
-# Declare a passthrough mode. This mode has only a single mapping to return to
-# normal mode. This makes it useful for testing a nested wayland compositor
-riverctl declare-mode passthrough
-
-# Super+F11 to enter passthrough mode
-riverctl map normal Super F11 enter-mode passthrough
-
-# Super+F11 to return to normal mode
-riverctl map passthrough Super F11 enter-mode normal
-
-# Various media key mapping examples for both normal and locked mode which do
-# not have a modifier
+# Various media key mapping examples for both normal and locked mode which do not have a modifier
 for mode in normal locked; do
 	# Eject the optical drive (well if you still have one that is)
 	riverctl map $mode None XF86Eject spawn 'eject -T'
@@ -136,17 +124,15 @@ for mode in normal locked; do
 	riverctl map $mode None XF86AudioNext spawn 'playerctl next'
 
 	# Control screen backlight brightness with light (https://github.com/haikarainen/light)
-	riverctl map $mode None XF86MonBrightnessUp spawn 'light -A 5'
-	riverctl map $mode None XF86MonBrightnessDown spawn 'light -U 5'
+	riverctl map $mode None XF86MonBrightnessUp spawn 'brillo -lA 2.5'
+	riverctl map $mode None XF86MonBrightnessDown spawn 'brillo -lU 2.5'
+
+	riverctl map $mode None XF86KbdBrightnessUp spawn 'brillo -kA 5'
+	riverctl map $mode None XF86KbdBrightnessDown spawn 'brillo -kU 5'
 done
 
-# Set background and border color
-riverctl background-color 0x002b36
-riverctl border-color-focused 0x93a1a1
-riverctl border-color-unfocused 0x586e75
-
 # Set keyboard repeat rate
-riverctl set-repeat 50 300
+riverctl set-repeat 25 300
 
 # Make all views with an app-id that starts with "float" and title "foo" start floating.
 riverctl rule-add -app-id 'float*' -title 'foo' float
@@ -158,3 +144,7 @@ riverctl rule-add -app-id "bar" csd
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
 rivertile -view-padding 6 -outer-padding 6 &
+waybar &
+way-displays >/tmp/way-displays.${XDG_VTNR}.${USER}.log 2>&1 &
+brillo -lS 5 &
+brillo -kS 5 &
