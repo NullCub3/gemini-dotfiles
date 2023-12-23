@@ -15,7 +15,7 @@ riverctl border-color-unfocused 0x908caa
 # *** Program Shortcuts ***
 
 riverctl map normal Super+Shift Return spawn alacritty
-riverctl map normal Super Space spawn 'rofi -show drun'
+riverctl map normal Super Space spawn 'fuzzel'
 
 # *** Media Keys ***
 
