@@ -85,7 +85,7 @@ focus_behaviour = "default"
 [background]
 
 # Control whether to render background widget or not
-show_background = false
+show_background = true
 
 [background.style]
 # Allow to set the default background color for the login shell

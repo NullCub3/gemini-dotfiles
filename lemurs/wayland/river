@@ -1,0 +1,6 @@
+#!/bin/sh
+export MOZ_ENABLE_WAYLAND=1
+export GTK_THEME=rose-pine-gtk
+export QT_QPA_PLATFORMTHEME=qt5ct
+exec river
+
