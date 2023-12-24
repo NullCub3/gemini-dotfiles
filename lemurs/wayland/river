@@ -1,6 +1,18 @@
 #!/bin/sh
+
+# Enable Wayland Support for Firefox
 export MOZ_ENABLE_WAYLAND=1
+
+# Theming
 export GTK_THEME=rose-pine-gtk
 export QT_QPA_PLATFORMTHEME=qt5ct
-exec river
 
+# Other Options
+export _JAVA_AWT_WM_NONREPARENTING=1
+export SDL_VIDEODRIVER=wayland
+export QT_QPA_PLATFORM=wayland
+export XDG_SESSION_DESKTOP=river
+export XDG_CURRENT_DESKTOP=river
+
+dunst &
+dbus-run-session river
