@@ -1,0 +1,44 @@
+# Mako Config
+max-history=10
+default-timeout=5000
+sort=-priority
+
+# Theme
+font=JetBrainsMonoNLNerdFontMono-Regular
+background-color=#1f1d2ec0
+text-color=#e0def4ff
+border-size=2
+border-radius=4
+border-color=#9ccfd8c0
+max-icon-size=64
+progress-color=over #31748fc0
+icons=1
+icon-location=left
+text-alignment=left
+padding=6
+
+# Size and Position
+width=300
+height=100
+outer-margin=0
+margin=12
+anchor=top-right
+layer=top
+max-visible=5
+
+# Custom Types
+[urgency=low]
+background-color=#26233ac0
+border-color=#6e6a8699
+text-color=#e0def4f0
+
+[urgency=critical]
+default-timeout=0
+ignore-timeout=1
+layer=overlay
+background-color=#eb6f92ff
+border-color=#ebbcbaff
+text-color=#FFFFFFFF
+
+[mode=do-not-disturb]
+invisible=1
