@@ -74,3 +74,5 @@ alias reboot "echo 'you dumbass'"
 
 # Git Log but better
 alias githist "git log --graph --decorate --oneline"
+
+zoxide init fish | source
