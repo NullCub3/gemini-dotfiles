@@ -14,8 +14,9 @@ riverctl border-color-unfocused 0x908caa
 
 # *** Program Shortcuts ***
 
-riverctl map normal Super+Shift Return spawn alacritty
+riverctl map normal Super+Shift Return spawn 'alacritty'
 riverctl map normal Super Space spawn 'fuzzel'
+riverctl map normal Super+Shift S spawn 'grim -g "$(slurp)" - | wl-copy -t image/png'
 
 # *** Media Keys ***
 
@@ -36,8 +37,8 @@ for mode in normal locked; do
 	riverctl map $mode None XF86AudioNext spawn 'playerctl next'
 
 	# Control screen backlight brightness with light (https://github.com/haikarainen/light)
-	riverctl map $mode None XF86MonBrightnessUp spawn 'brillo -lA 2.5'
-	riverctl map $mode None XF86MonBrightnessDown spawn 'brillo -lU 2.5'
+	riverctl map $mode None XF86MonBrightnessUp spawn 'brillo -lA 2'
+	riverctl map $mode None XF86MonBrightnessDown spawn 'brillo -lU 2'
 
 	riverctl map $mode None XF86KbdBrightnessUp spawn 'brillo -kA 5'
 	riverctl map $mode None XF86KbdBrightnessDown spawn 'brillo -kU 5'
@@ -138,28 +139,44 @@ riverctl map normal Super+Shift 0 set-view-tags $all_tags
 # ***  Other River Settings  ***
 # ******************************
 
+# *** Input Settings ***
+
 # Set keyboard repeat rate
 riverctl set-repeat 25 300
+# Mouse Settings
+riverctl input pointer-1133-16505-Logitech_G_Pro accel-profile flat
 
-# Make all views with an app-id that starts with "float" and title "foo" start floating.
-riverctl rule-add -app-id 'float*' -title 'foo' float
+riverctl set-cursor-warp on-output-change
+riverctl hide-cursor when-typing enabled
 
-# Make all views with app-id "bar" and any title use client-side decorations
-riverctl rule-add -app-id "bar" csd
+# *** Misc. ***
 
-# Flameshot fix
-riverctl float-filter-add "flameshot"
+# # Make all views with an app-id that starts with "float" and title "foo" start floating.
+# riverctl rule-add -app-id 'float*' -title 'foo' float
+#
+# # Make all views with app-id "bar" and any title use client-side decorations
+# riverctl rule-add -app-id "bar" csd
+#
+# # Flameshot fix
+# riverctl rule-add -app-id "flameshot" float
+#
+# riverctl rule-add -app-id 'obsidian' tags 2
+# riverctl rule-add -app-id 'firefox' -title 'firefox' tags 3
+# riverctl rule-add -app-id 'vesktop' tags 4
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
+rivertile -view-padding 6 -outer-padding 6 &
 
 # *********************
 # *** Exec Commands ***
 # *********************
 
-rivertile -view-padding 6 -outer-padding 6 &
+source ~/.config/wlsunset/location.sh &
+wlsunset -l $lat -L $long &
+swaybg --image ~/Pictures/Desktop/background.jpg -m fill &
 waybar -b bar &
 way-displays >/tmp/way-displays.${XDG_VTNR}.${USER}.log 2>&1 &
-brillo -lS 5 &
+# brillo -lS 5 &
 brillo -kS 5 &
