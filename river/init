@@ -156,13 +156,9 @@ riverctl hide-cursor when-typing enabled
 #
 # # Make all views with app-id "bar" and any title use client-side decorations
 # riverctl rule-add -app-id "bar" csd
-#
-# # Flameshot fix
-# riverctl rule-add -app-id "flameshot" float
-#
-# riverctl rule-add -app-id 'obsidian' tags 2
-# riverctl rule-add -app-id 'firefox' -title 'firefox' tags 3
-# riverctl rule-add -app-id 'vesktop' tags 4
+
+# Flameshot fix Maybe
+riverctl float-filter-add app-id 'flameshot'
 
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
@@ -173,7 +169,10 @@ rivertile -view-padding 6 -outer-padding 6 &
 # *** Exec Commands ***
 # *********************
 
-source ~/.config/wlsunset/location.sh &
+# Other Flameshot Fix Potentially
+#exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY &
+mako &
+source ~/.config/wlsunset/location.sh
 wlsunset -l $lat -L $long &
 swaybg --image ~/Pictures/Desktop/background.jpg -m fill &
 waybar -b bar &
