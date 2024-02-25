@@ -6,10 +6,6 @@ export MOZ_ENABLE_WAYLAND=1
 # Theming
 export GTK_THEME=rose-pine-gtk
 export QT_QPA_PLATFORMTHEME=qt5ct
-# gsettings set $gnome-schema gtk-theme 'Your theme'
-# gsettings set $gnome-schema icon-theme 'Your icon theme'
-# gsettings set $gnome-schema cursor-theme 'Your cursor Theme'
-# gsettings set $gnome-schema font-name 'Your font name'
 
 # Other Options
 export _JAVA_AWT_WM_NONREPARENTING=1
